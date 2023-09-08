@@ -2,10 +2,9 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import Result from "./result";
 
-const Form = () => {
+const Form_local = ({product, setProduct}) => {
     const [search_bar, setSearch_bar] = useState("");
     const [existProduct, setExistProduct] = useState(false);
-    const [product, setProduct] = useState({});
     const [noProduct, setNoProduct] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -25,6 +24,7 @@ const Form = () => {
     }
     useEffect(() => {
     if (search_bar.trim() !== '') {
+        console.log(search_bar);
         setLoading(true)
         sendDataToAPi()
     }
@@ -49,6 +49,7 @@ const Form = () => {
                     product={product}
                     noProduct={noProduct}
                 />
+                
             </div>
             
         </div>
@@ -56,4 +57,4 @@ const Form = () => {
 
 }
 
-export default Form;
+export default Form_local;
